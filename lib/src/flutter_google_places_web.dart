@@ -43,6 +43,7 @@ class FlutterGooglePlacesWeb extends StatefulWidget {
   final String components;
   final InputDecoration decoration;
   final bool required;
+  final Widget loader;
 
   FlutterGooglePlacesWeb(
       {Key key,
@@ -52,7 +53,9 @@ class FlutterGooglePlacesWeb extends StatefulWidget {
       this.components,
       this.sessionToken = true,
       this.decoration,
-      this.required});
+      this.required,
+      this.loader
+      });
 
   @override
   FlutterGooglePlacesWebState createState() => FlutterGooglePlacesWebState();
@@ -89,14 +92,13 @@ class FlutterGooglePlacesWebState extends State<FlutterGooglePlacesWeb>
 
     String baseURL =
         'https://maps.googleapis.com/maps/api/place/autocomplete/json';
-    String type = 'address';
     String input = Uri.encodeComponent(inputText);
     if (widget.proxyURL == null) {
       proxiedURL =
-          '$baseURL?input=$input&key=${widget.apiKey}&type=$type&sessiontoken=$_sessionToken';
+          '$baseURL?input=$input&key=${widget.apiKey}&sessiontoken=$_sessionToken';
     } else {
       proxiedURL =
-          '${widget.proxyURL}$baseURL?input=$input&key=${widget.apiKey}&type=$type&sessiontoken=$_sessionToken';
+          '${widget.proxyURL}$baseURL?input=$input&key=${widget.apiKey}&sessiontoken=$_sessionToken';
     }
     if (widget.offset == null) {
       offsetURL = proxiedURL;
@@ -210,7 +212,7 @@ class FlutterGooglePlacesWebState extends State<FlutterGooglePlacesWeb>
                                     ? Container(
                                         padding: EdgeInsets.only(
                                             top: 102, bottom: 102),
-                                        child: CircularProgressIndicator(
+                                        child: (widget.loader != null) ? widget.loader : CircularProgressIndicator(
                                           valueColor: _loadingTween,
                                           strokeWidth: 6.0,
                                         ),
