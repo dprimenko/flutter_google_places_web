@@ -187,7 +187,7 @@ class FlutterGooglePlacesWebState extends State<FlutterGooglePlacesWeb>
                   decoration: widget.decoration,
                   validator: (value) {
                     if (widget.required == true && value.isEmpty) {
-                      return 'Please enter an address';
+                      return 'Introduzca una localización';
                     }
                     return null;
                   },
@@ -199,7 +199,7 @@ class FlutterGooglePlacesWebState extends State<FlutterGooglePlacesWeb>
                 ),
                 FlutterGooglePlacesWeb.showResults
                     ? Padding(
-                        padding: EdgeInsets.only(top: 50),
+                        padding: EdgeInsets.only(top: 60),
                         child: Container(
                           width: MediaQuery.of(context).size.width,
                           child: Column(
@@ -229,13 +229,6 @@ class FlutterGooglePlacesWebState extends State<FlutterGooglePlacesWeb>
                                                             .value))
                                             .toList(),
                                       ),
-                              ),
-                              Container(
-                                height: 30,
-                                child: Image.asset(
-                                  'packages/flutter_google_places/assets/google_white.png',
-                                  scale: 3,
-                                ),
                               ),
                             ],
                           ),
