@@ -104,7 +104,7 @@ class FlutterGooglePlacesWebState extends State<FlutterGooglePlacesWeb>
     String input = Uri.encodeComponent(inputText);
     if (widget.proxyURL == null) {
       proxiedURL =
-          '$baseURL?input=$input&key=${widget.apiKey}&sessiontoken=$_sessionToken';
+          '$baseURL?input=$input&language=es&key=${widget.apiKey}&sessiontoken=$_sessionToken';
     } else {
       proxiedURL =
           '${widget.proxyURL}$baseURL?input=$input&key=${widget.apiKey}&sessiontoken=$_sessionToken';
