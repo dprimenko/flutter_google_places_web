@@ -12,6 +12,8 @@ dependencies:
   dio: ^3.0.9
   uuid: ^2.1.0
   rainbow_color: ^0.1.1
+  google_maps_flutter: ^0.5.28
+  google_maps_flutter_web: ^0.1.0
 
 dev_dependencies:
   flutter_test:
@@ -25,6 +27,7 @@ flutter:
   assets:
     - packages/flutter_google_places_web/assets/google_black.png
     - packages/flutter_google_places_web/assets/google_white.png
+    - assets/mapstyle.json
   #   - images/a_dot_ham.jpeg
   #
   # For details regarding assets in packages, see

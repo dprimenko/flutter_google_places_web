@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_google_places_web/flutter_google_places_web.dart';
 
-const kGoogleApiKey = "API_KEY";
+const kGoogleApiKey = "AIzaSyAG7O1fU_EsdoC1MHmNngPwEALjY83Jykw";
 
 void main() {
   runApp(MyApp());
@@ -41,7 +41,21 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
               FlutterGooglePlacesWeb(
                 apiKey: kGoogleApiKey,
-                proxyURL: 'https://cors-anywhere.herokuapp.com/',
+                proxyURL: 'https://cryptic-escarpment-20457.herokuapp.com/',
+                components: 'country:es',
+                initialLat: 40.416701,
+                initialLng: -3.703778,
+                decoration: InputDecoration(
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                    borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 1.5),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                    borderSide: BorderSide(color: Color(0xFFDBDBDB)),
+                  ),
+                  hintText: "¿Dónde estas?",
+                ),
               ),
               FlatButton(
                 onPressed: () {
